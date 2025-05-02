@@ -359,3 +359,132 @@ main {
     height: auto;
   }
 }
+/* Contenedor de las unidades */
+.nav-unidades {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Cada unidad será un bloque dentro del contenedor flex */
+.unidad {
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
+  text-align: center;
+}
+
+/* Estilo genérico para los botones (semanas) con fondo de imagen */
+.boton-nav {
+  display: block;
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  animation: buttonAnimation 0.6s ease-out;
+  background-image: url('imagenes/semanasimagen.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Animación al cargar los botones */
+@keyframes buttonAnimation {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Hover para botones de semana: imagen se reemplaza por color sólido */
+.boton-nav:hover {
+  background-image: none;
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Focus para accesibilidad */
+.boton-nav:focus {
+  outline: none;
+  border: 2px solid #3498db;
+}
+
+/* Oculta las semanas por defecto */
+.semanas {
+  display: none;
+  margin-top: 10px;
+}
+
+/* Ajustes tipográficos */
+.unidad a {
+  display: inline-block;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Estilo diferenciado para los botones de unidad con fondo de imagen */
+.unidad > .boton-nav {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 18px 28px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  background-image: url('imagenes/imgupla.jpg'); /* Imagen de fondo para unidades */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+}
+
+/* Hover para botones de unidad: imagen se reemplaza por color sólido */
+.unidad > .boton-nav:hover {
+  background-image: none;
+  background-color: #3498db;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Indicador de unidad expandida */
+.unidad > .boton-nav::after {
+  content: "";
+}
+.unidad.active > .boton-nav::after {
+  content: " ▼";
+  font-size: 14px;
+  margin-left: 6px;
+}
+
+/* Mostrar semanas cuando la unidad está activa */
+.unidad.active .semanas {
+  display: block;
+}
+
+/* Ajustes específicos para botones de semana dentro de .semanas */
+.semanas .boton-nav {
+  font-size: 18px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  letter-spacing: 1px;
+  background-image: url('imagenes/uplaimg.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+/* Hover para semanas dentro de .semanas */
+.semanas .boton-nav:hover {
+  background-image: none;
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
